@@ -11,7 +11,8 @@ import time
 #                                 table[2][0] | table[2][1] | table[2][2]
 
 
-def display_board(table):       # Function for printing out the Tic-Tac-Toe board.
+# Function for printing out the Tic-Tac-Toe board
+def display_board(table):       
 
     print("\n")
     print("\t     |     |")
@@ -71,10 +72,12 @@ def game(table):
           f"in this way:(row-number column-number)")
     # INTRO TEXTS ENDS
 
-    m = 0                         # m equals number of moves made
+    # m equals number of moves made
+    m = 0                         
 
     # res stands for game status, if 'res' exists, that means the game has been ended.
     res = result(table, 0, marker)
+    
     while not res:
         # input is in the order of "row-number column-number",this is the position where the player wants to make a move
         input_position = input()
@@ -85,7 +88,8 @@ def game(table):
         # 'z' stands for game marker of the player who is making a move, if it's Nth move, m stands for N-1 value
         z = marker[0] if m % 2 == 0 else marker[1]
 
-        if table[x-1][y-1] == ' ':            # checking whether the mentioned position is empty or not
+        # checking whether the mentioned position is empty or not
+        if table[x-1][y-1] == ' ':            
             table[x-1][y-1] = z
             display_board(table)
             m += 1
@@ -98,5 +102,6 @@ def game(table):
 
 
 # Each element in this list stands for each row in the Tic-Tac-Toe board
-empty_grid = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]             # Game starts with empty board
+# Game starts with empty board
+empty_grid = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]             
 print(game(empty_grid))
